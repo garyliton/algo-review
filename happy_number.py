@@ -29,3 +29,4 @@ def get_next(n):
         print(digit)
 
 print(get_next(123))
+

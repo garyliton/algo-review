@@ -1,26 +1,17 @@
-from math import sqrt
+
 class Solution:
     def numSquares(self, n):
-        square_nums = [i ** 2 for i in range(1, int(sqrt(n)) + 1)]
+        if n <= 3:
+            return n
 
-        def minNumSquares(k):
-            """ recursive solution """
-            # bottom cases: find a square number
-            if k in square_nums:
-                return 1
-            min_num = float('inf')
+        dp = [i for i in range(n + 1)]
+        for i in range(4, n + 1):
+            j = 1
+            while j * j <= i:
+                dp[i] = min(dp[i], dp[i - j * j] + 1)
+                j += 1
+        return dp[n]
 
-            # Find the minimal value among all possible solutions
-            for square in square_nums:
-                if k < square:
-                    break
-                new_num = minNumSquares(k - square) + 1
-                min_num = min(min_num, new_num)
-            return min_num
-
-        return minNumSquares(n)
 
 s = Solution()
-print(s.numSquares(12))
-
-
+print(s.numSquares(13))
