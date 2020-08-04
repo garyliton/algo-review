@@ -14,3 +14,5 @@ def rob(nums):
         b = c
 
     return c
+
+print(rob([5,1,1,5]))
