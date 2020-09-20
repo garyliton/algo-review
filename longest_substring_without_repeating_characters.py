@@ -20,4 +20,4 @@ class Solution:
         return res
 
 s = Solution()
-s.lengthOfLongestSubstring("pwwkew")
+bgs.lengthOfLongestSubstring("pwwkew")
